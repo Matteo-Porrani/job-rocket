@@ -1,0 +1,63 @@
+{% extends 'base.html.twig' %}
+
+{% block main %}
+
+    <section>
+        <div class="container">
+
+            <h1 class="is-size-3 has-text-weight-bold has-text-primary has-text-centered my-6">Modification de société</h1>
+
+{#            {{ dump(form) }}#}
+
+            {{ form_start(form) }}
+
+            <div class="field">
+                {{ form_label(form.name, 'Nom', {'label_attr': {'class': 'label'}}) }}
+                <div class="control">
+                    {{ form_widget(form.name, {attr: {class: 'is-size-4 p-2'}}) }}
+                </div>
+            </div>
+
+            <div class="field">
+                {{ form_label(form.domain, 'Domaine', {'label_attr': {'class': 'label'}}) }}
+                <div class="control">
+                    {{ form_widget(form.domain, {attr: {class: 'is-size-4 p-2'}}) }}
+                </div>
+            </div>
+
+            <div class="field">
+                {{ form_label(form.description, 'Description', {'label_attr': {'class': 'label'}}) }}
+                <div class="control">
+                    {{ form_widget(form.description, {attr: {class: 'is-size-4 p-2'}}) }}
+                </div>
+            </div>
+
+            <div class="field">
+                {{ form_label(form.website, 'Site web', {'label_attr': {'class': 'label'}}) }}
+                <div class="control">
+                    {{ form_widget(form.website, {attr: {class: 'is-size-4 p-2'}}) }}
+                </div>
+            </div>
+
+
+            <div class="field">
+                <div class="control">
+                    {{ form_widget(form.Enregistrer, {attr: {class: 'button is-primary is-large my-4'}}) }}
+                </div>
+            </div>
+
+            {{ form_end(form) }}
+
+
+            {% if company is defined and company.id is not null %}
+
+                <a class="button is-danger is-large my-4" href="{{ path('company_delete', {id: company.id }) }}">Supprimer</a>
+
+            {% endif %}
+
+
+        </div>
+    </section>
+
+
+{% endblock %}

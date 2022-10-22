@@ -1,0 +1,58 @@
+{% extends 'base.html.twig' %}
+
+{% block main %}
+
+    <section>
+        <div class="container">
+
+            <h1 class="is-size-3 has-text-weight-bold has-text-primary has-text-centered my-6">Sociétés</h1>
+
+            <a class="button is-primary is-large my-6" href="/companies/form">
+                <i class="fas fa-plus-square mr-2"></i>
+                Ajouter
+            </a>
+
+
+
+
+            {% for company in companies %}
+                <div class="company">
+                    <div>
+                        {{ company.id }}
+                    </div>
+
+                    <div>
+                        <h5>
+                            <a class="has-text-weight-bold has-text-primary is-size-5" href="{{ path('company_edit', {id: company.id}) }}">
+                                {{ company.name }}
+                            </a>
+                        </h5>
+
+                    </div>
+
+
+                    <div>
+                        {{ company.domain }}
+                    </div>
+
+                    <div>
+                        <small>
+                            <a href="{{ company.website }}" target="_blank">{{ company.website }}</a>
+
+                        </small>
+
+                    </div>
+
+
+                </div>
+            {% endfor %}
+
+
+
+
+
+        </div>
+    </section>
+
+
+{% endblock %}

@@ -1,3 +1,26 @@
-#index:
-#    path: /
-#    controller: App\Controller\DefaultController::index
+index:
+    path: /
+    controller: App\Controller\Dashboard\DashboardController
+    methods:    GET
+
+company:
+    path: /companies
+    controller: App\Controller\Company\CompanyController
+    methods:    GET
+
+company_form:
+    path: /companies/form
+    controller: App\Controller\Company\CompanyFormController
+    methods:    GET|POST
+
+company_edit:
+    path: /companies/edit/{id}
+    controller: App\Controller\Company\CompanyFormController
+    methods:    GET|POST
+
+company_delete:
+    path: /companies/delete/{id}
+    controller: App\Controller\Company\CompanyDeleteController
+    methods:    GET|POST
+
+
