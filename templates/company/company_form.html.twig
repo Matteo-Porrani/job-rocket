@@ -5,9 +5,14 @@
     <section>
         <div class="container">
 
-            <h1 class="is-size-3 has-text-weight-bold has-text-primary has-text-centered my-6">Modification de société</h1>
+            <h1 class="is-size-3 has-text-weight-bold has-text-centered my-6">Modification de société</h1>
 
-{#            {{ dump(form) }}#}
+            {% if company is defined and company.id is not null %}
+                <div class="has-text-centered">
+                    <a class="button is-danger is-large my-4"
+                       href="{{ path('company_delete', {id: company.id }) }}">Supprimer</a>
+                </div>
+            {% endif %}
 
             {{ form_start(form) }}
 
@@ -41,20 +46,12 @@
 
 
             <div class="field">
-                <div class="control">
+                <div class="control has-text-centered">
                     {{ form_widget(form.Enregistrer, {attr: {class: 'button is-primary is-large my-4'}}) }}
                 </div>
             </div>
 
             {{ form_end(form) }}
-
-
-            {% if company is defined and company.id is not null %}
-
-                <a class="button is-danger is-large my-4" href="{{ path('company_delete', {id: company.id }) }}">Supprimer</a>
-
-            {% endif %}
-
 
         </div>
     </section>

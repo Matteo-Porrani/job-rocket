@@ -3,6 +3,21 @@ index:
     controller: App\Controller\Dashboard\DashboardController
     methods:    GET
 
+job_form:
+    path: /jobs/form
+    controller: App\Controller\Job\JobFormController
+    methods:    GET|POST
+
+job_edit:
+    path: /jobs/edit/{id}
+    controller: App\Controller\Job\JobFormController
+    methods:    GET|POST
+
+job_delete:
+    path: /jobs/delete/{id}
+    controller: App\Controller\Job\JobDeleteController
+    methods:    GET
+
 company:
     path: /companies
     controller: App\Controller\Company\CompanyController
@@ -21,6 +36,6 @@ company_edit:
 company_delete:
     path: /companies/delete/{id}
     controller: App\Controller\Company\CompanyDeleteController
-    methods:    GET|POST
+    methods:    GET
 
 
