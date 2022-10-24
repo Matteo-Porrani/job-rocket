@@ -2,6 +2,12 @@
 
 @import '../../node_modules/bulma/css/bulma.css';
 
+
+$dark: #4a4a4a;
+$grey-lighter: #dbdbdb;
+
+$info: #3e8ed0;
+
 body {
     font-family: 'Maven Pro', sans-serif;
 }
@@ -11,28 +17,46 @@ header {
         display: grid;
         grid-template-columns: 7fr 4fr;
     }
+}
 
-    nav {
-        a {
-            border-bottom: 2px solid transparent;
-            &:hover {
-                border-color: #dbdbdb;
-            }
+.wrapper-grid {
+    display: grid;
+    grid-template-columns: 2fr 11fr;
+    min-height: 100vh;
+}
+
+nav {
+    a {
+        border-bottom: 2px solid transparent;
+        &:hover {
+            border-color: $dark;
         }
     }
 }
 
-form {
 
-    input,
-    select {
-        width: 100%;
-        font-family: inherit;
-    }
+.toolbar {
+    display: grid;
+    grid-gap: 1rem;
+    grid-template-columns: repeat(8, 1fr);
+    align-items: center;
+}
 
-    .select {
-        width: 100%;
-    }
+
+.filter-form {
+    display: flex;
+    gap: .25rem;
+    align-items: center;
+}
+
+input,
+select {
+    width: 100%;
+    font-family: inherit;
+}
+
+.select {
+    width: 100%;
 }
 
 
@@ -44,10 +68,10 @@ form {
 
 .job {
     display: grid;
-    grid-template-columns: .5fr 4fr 6fr 1fr 2fr 3fr;
+    grid-template-columns: .5fr 4fr 7fr 1fr 2fr 3fr;
     align-items: center;
 
-    padding: .5rem 0;
+    padding: .25rem 0;
     border-bottom: 1px solid hsl(0, 0%, 86%);
 
     h5 {
@@ -60,7 +84,7 @@ form {
     grid-template-columns: 1fr 4fr 4fr 6fr;
     align-items: center;
 
-    padding: .5rem 0;
+    padding: .25rem 0;
     border-bottom: 1px solid hsl(0, 0%, 86%);
 
     h5 {

@@ -3,6 +3,11 @@ index:
     controller: App\Controller\Dashboard\DashboardController
     methods:    GET
 
+job_status:
+    path: /status/{status}
+    controller: App\Controller\Dashboard\DashboardController::filterByStatus
+    methods: GET
+
 job_form:
     path: /jobs/form
     controller: App\Controller\Job\JobFormController

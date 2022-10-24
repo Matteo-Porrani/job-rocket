@@ -10,3 +10,22 @@ import './styles/app.scss';
 
 // start the Stimulus application
 import './bootstrap';
+
+console.log(location.pathname);
+
+const initDashboardFiltering = () => {
+  const selector = document.querySelector('select[name="filter"]');
+  const filterBtn = document.querySelector('#filterBtn');
+
+  selector.addEventListener('change', () => {
+    filterBtn.setAttribute('href', `/status/${selector.value}`);
+  });
+}
+
+// DASHBOARD PAGE
+if (location.pathname === "/" || location.pathname.includes('status')) {
+  initDashboardFiltering();
+}
+
+
+

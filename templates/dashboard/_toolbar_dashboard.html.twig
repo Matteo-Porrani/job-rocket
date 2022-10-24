@@ -1,0 +1,29 @@
+<div class="toolbar">
+    <a class="button is-info is-medium my-3" href="{{ path('job_form') }}">
+        <i class="fas fa-plus-square mr-2"></i>
+        Ajouter
+    </a>
+
+    <div></div>
+
+    <div class="select">
+        <select name="filter">
+            <option value="" disabled selected>---</option>
+            <option value="0">Refusé</option>
+            <option value="1">À traiter</option>
+            <option value="2">En cours</option>
+            <option value="3">Entretien</option>
+        </select>
+    </div>
+
+    <a id="filterBtn" class="button is-info is-medium my-3" href="">
+        <i class="fas fa-filter mr-2"></i>
+        Filtrer
+    </a>
+
+    <a class="button is-dark is-medium my-3" href="/">
+        <i class="fas fa-trash-alt mr-2"></i>
+        Reset
+    </a>
+
+</div>

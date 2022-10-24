@@ -14,4 +14,12 @@ class DashboardController extends AbstractController
 
         return $this->render('dashboard/dashboard.html.twig', compact('jobs'));
     }
+
+
+    public function filterByStatus(string $status, JobRepository $jobRepository)
+    {
+        $jobs = $jobRepository->findByStatus($status);
+
+        return $this->render('dashboard/dashboard.html.twig', compact('jobs'));
+    }
 }
