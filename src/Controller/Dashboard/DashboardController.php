@@ -4,13 +4,22 @@ namespace App\Controller\Dashboard;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use App\Repository\JobRepository;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 
 class DashboardController extends AbstractController
 {
-    public function __invoke(JobRepository $jobRepository)
+    public function __invoke(Request $request, JobRepository $jobRepository): Response
     {
+        $progress = $request->query->get('progress');
 
-        $jobs = $jobRepository->findAll();
+        if (isset($progress) && $progress === 'active') {
+            $jobs = $jobRepository->findActiveJobs();
+        } else {
+            $jobs = $jobRepository->findAll();
+        }
+
+
 
         return $this->render('dashboard/dashboard.html.twig', compact('jobs'));
     }
@@ -22,4 +31,5 @@ class DashboardController extends AbstractController
 
         return $this->render('dashboard/dashboard.html.twig', compact('jobs'));
     }
+
 }

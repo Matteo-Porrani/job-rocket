@@ -42,6 +42,11 @@ class Job
      */
     private $company;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Platform::class, inversedBy="jobs")
+     */
+    private $platform;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -103,6 +108,18 @@ class Job
     public function setCompany(?Company $company): self
     {
         $this->company = $company;
+
+        return $this;
+    }
+
+    public function getPlatform(): ?Platform
+    {
+        return $this->platform;
+    }
+
+    public function setPlatform(?Platform $platform): self
+    {
+        $this->platform = $platform;
 
         return $this;
     }

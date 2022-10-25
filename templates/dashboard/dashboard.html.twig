@@ -20,6 +20,7 @@
                 <div>INTITULÉ</div>
                 <div></div>
                 <div>STATUT</div>
+                <div>PLATEFORME</div>
                 <div>POSTULÉ LE</div>
             </div>
 
@@ -54,9 +55,15 @@
                     </div>
 
                     <div class="status has-background-{{ job.status|status_color }} p-1 mr-2">
-                        <h5 class="has-text-weight-bold has-text-centered">
+                        <p class="has-text-weight-bold has-text-centered">
                             {{ job.status|status|upper }}
-                        </h5>
+                        </p>
+                    </div>
+
+                    <div>
+                        {% if job.platform is not null %}
+                            <p class="has-text-weight-semibold">{{ job.platform.name }}</p>
+                        {% endif %}
                     </div>
 
                     <div>

@@ -34,9 +34,12 @@ class AppExtension extends AbstractExtension
                 $computedStatus = 'À traiter';
                 break;
             case 2:
-                $computedStatus = 'En cours';
+                $computedStatus = 'Candidature';
                 break;
             case 3:
+                $computedStatus = 'En cours';
+                break;
+            case 4:
                 $computedStatus = 'Entretien';
                 break;
         }
@@ -57,7 +60,10 @@ class AppExtension extends AbstractExtension
                 $statusColor = 'warning';
                 break;
             case 3:
-                $statusColor = 'primary';
+                $statusColor = 'orange';
+                break;
+            case 4:
+                $statusColor = 'teal';
                 break;
         }
 

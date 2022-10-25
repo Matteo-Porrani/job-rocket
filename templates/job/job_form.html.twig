@@ -5,8 +5,14 @@
     <section>
         <div class="container">
 
-            <h1 class="is-size-3 has-text-weight-bold has-text-centered my-6">Modification de
-                poste</h1>
+            <h1 class="is-size-3 has-text-weight-bold has-text-centered my-6">
+                {% if 'form' in app.request.get('_route') %}
+                    <span>Création</span>
+                {% elseif 'edit' in app.request.get('_route') %}
+                    <span>Modification</span>
+                {% endif %}
+                d'annonce</h1>
+
 
             {# DELETE BUTTON #}
             {% if job is defined and job.id is not null %}
@@ -26,6 +32,17 @@
                         <div class="control">
                             <div class="select">
                                 {{ form_widget(form.company, {attr: {class: ''}}) }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="column">
+                    <div class="field">
+                        {{ form_label(form.platform, '', {'label_attr': {'class': 'label'}}) }}
+                        <div class="control">
+                            <div class="select">
+                                {{ form_widget(form.platform, {attr: {class: ''}}) }}
                             </div>
                         </div>
                     </div>

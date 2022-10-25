@@ -4,6 +4,7 @@ namespace App\Form\Job;
 
 use App\Entity\Company;
 use App\Entity\Job;
+use App\Entity\Platform;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
@@ -27,8 +28,9 @@ class JobType extends AbstractType
                     // 'UI value' => 'real data value'
                     'Refusé' => '0',
                     'À traiter' => '1',
-                    'En cours' => '2',
-                    'Entretien' => '3',
+                    'Candidature' => '2',
+                    'En cours' => '3',
+                    'Entretien' => '4',
                 ]
             ])
             ->add('link')
@@ -38,6 +40,10 @@ class JobType extends AbstractType
             ->add('company', EntityType::class, [
                 'choice_label' => 'name',
                 'class' => Company::class
+            ])
+            ->add('platform', EntityType::class, [
+                'choice_label' => 'name',
+                'class' => Platform::class
             ])
             ->add('submit', SubmitType::class, [
                 'label' => 'Enregistrer',

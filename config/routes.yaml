@@ -43,4 +43,23 @@ company_delete:
     controller: App\Controller\Company\CompanyDeleteController
     methods:    GET
 
+platform:
+    path: /platforms
+    controller: App\Controller\Platform\PlatformController
+    methods:    GET
+
+platform_form:
+    path: /platforms/form
+    controller: App\Controller\Platform\PlatformFormController
+    methods:    GET|POST
+
+platform_edit:
+    path: /platforms/edit/{id}
+    controller: App\Controller\Platform\PlatformFormController
+    methods:    GET|POST
+
+platform_delete:
+    path: /platforms/delete/{id}
+    controller: App\Controller\Platform\PlatformDeleteController
+    methods:    GET|POST
 

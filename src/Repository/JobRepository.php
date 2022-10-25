@@ -50,8 +50,20 @@ class JobRepository extends ServiceEntityRepository
             ->orderBy('j.id', 'ASC')
             ->setMaxResults(30)
             ->getQuery()
-            ->getResult()
-        ;
+            ->getResult();
+    }
+
+    /**
+     * @return Job[] Returns an array of Job objects
+     */
+    public function findActiveJobs(): array
+    {
+        return $this->createQueryBuilder('j')
+            ->andWhere('j.status > :val')
+            ->setParameter('val', 0)
+            ->orderBy('j.appliedOn', 'ASC')
+            ->getQuery()
+            ->getResult();
     }
 
 //    public function findOneBySomeField($value): ?Job
@@ -63,4 +75,5 @@ class JobRepository extends ServiceEntityRepository
 //            ->getOneOrNullResult()
 //        ;
 //    }
+
 }

@@ -1,0 +1,59 @@
+{% extends 'base.html.twig' %}
+
+{% block main %}
+
+    <section>
+        <div class="container is-fluid">
+
+            {# PAGE HEADER #}
+            <div class="page-header">
+                <h1 class="is-size-2 has-text-weight-bold my-3">Plateformes</h1>
+            </div>
+
+            {# TOOLBAR #}
+            <div class="toolbar">
+                <a class="button is-info is-medium my-3" href="{{ path('platform_form') }}">
+                    <i class="fas fa-plus-square mr-2"></i>
+                    Ajouter
+                </a>
+            </div>
+
+            <div class="platform has-text-weight-bold has-text-grey-light">
+                <div>ID</div>
+                <div>NOM</div>
+                <div>SITE WEB</div>
+                <div>CONTACT</div>
+            </div>
+
+            {% for platform in platforms %}
+                <div class="platform">
+                    <div>{{ platform.id }}</div>
+
+                    <div>
+                        <h5>
+                            <a class="has-text-weight-bold has-text-info"
+                               href="{{ path('platform_edit', {id: platform.id}) }}">
+                                {{ platform.name }}
+                            </a>
+                        </h5>
+                    </div>
+
+                    <div>
+                        <p>{{ platform.contact }}</p>
+                    </div>
+
+                    <div>
+                        <small>
+                            <a class="has-text-weight-semibold has-text-primary"
+                               href="{{ platform.website }}"
+                               target="_blank">{{ platform.website }}</a>
+                        </small>
+                    </div>
+
+                </div>
+            {% endfor %}
+
+        </div>
+    </section>
+
+{% endblock %}

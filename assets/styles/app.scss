@@ -21,7 +21,7 @@ header {
 
 .wrapper-grid {
     display: grid;
-    grid-template-columns: 2fr 11fr;
+    grid-template-columns: 2fr 13fr;
     min-height: 100vh;
 }
 
@@ -68,7 +68,7 @@ select {
 
 .job {
     display: grid;
-    grid-template-columns: .5fr 4fr 7fr 1fr 2fr 3fr;
+    grid-template-columns: .5fr 4fr 7fr 1fr 2fr 3fr 3fr;
     align-items: center;
 
     padding: .25rem 0;
@@ -92,7 +92,35 @@ select {
     }
 }
 
+.platform {
+    display: grid;
+    grid-template-columns: 1fr 4fr 4fr 6fr;
+    align-items: center;
+
+    padding: .25rem 0;
+    border-bottom: 1px solid hsl(0, 0%, 86%);
+
+    h5 {
+        margin: 0;
+    }
+}
+
 // STATUS
 .status {
     border-radius: .5rem;
 }
+
+// CUSTOM COLOR CLASSES
+
+.has-background-orange {
+    background-color: #fb8c00;
+}
+
+.has-background-teal {
+    background-color: #00acc1;
+}
+
+.has-background-soft {
+    background-color: #dbdbdb;
+}
+
