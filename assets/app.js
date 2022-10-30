@@ -11,21 +11,18 @@ import './styles/app.scss';
 // start the Stimulus application
 import './bootstrap';
 
-console.log(location.pathname);
+import ModalHandling from "./js/modal_handling";
+import DashboardFiltering from "./js/dashboard_filtering";
 
-const initDashboardFiltering = () => {
-  const selector = document.querySelector('select[name="filter"]');
-  const filterBtn = document.querySelector('#filterBtn');
 
-  selector.addEventListener('change', () => {
-    filterBtn.setAttribute('href', `/status/${selector.value}`);
-  });
-}
 
-// DASHBOARD PAGE
+// console.log('pathname is ', location.pathname);
+
 if (location.pathname === "/" || location.pathname.includes('status')) {
-  initDashboardFiltering();
+  DashboardFiltering.initFiltering();
 }
 
-
-
+// init modal handling
+document.addEventListener('DOMContentLoaded', () => {
+  ModalHandling.init();
+});

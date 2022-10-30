@@ -8,10 +8,12 @@
             <h1 class="is-size-3 has-text-weight-bold has-text-centered my-6">Modification de société</h1>
 
             {% if company is defined and company.id is not null %}
-                <div class="has-text-centered">
-                    <a class="button is-danger is-medium my-4"
-                       href="{{ path('company_delete', {id: company.id }) }}">Supprimer</a>
-                </div>
+{#                <div class="has-text-centered">#}
+{#                    <a class="button is-danger is-medium my-4"#}
+{#                       href="{{ path('company_delete', {id: company.id }) }}">Supprimer</a>#}
+{#                </div>#}
+
+                {% include 'components/_modal_toggler.html.twig' with { identifier: company.name } %}
             {% endif %}
 
             {{ form_start(form) }}
