@@ -12,6 +12,7 @@ class AppExtension extends AbstractExtension
         return [
             new TwigFilter('status', [$this, 'getComputedStatus']),
             new TwigFilter('status_color', [$this, 'getStatusColor']),
+            new TwigFilter('resume_type', [$this, 'getResumeType']),
             new TwigFilter('price', [$this, 'formatPrice']),
         ];
     }
@@ -68,6 +69,24 @@ class AppExtension extends AbstractExtension
         }
 
         return $statusColor;
+    }
+
+    public function getResumeType(string $typeCode): string
+    {
+        switch ($typeCode) {
+            case 'FRO':
+                $resumeType = 'Frontend';
+                break;
+            case 'BCK':
+                $resumeType = 'Backend';
+                break;
+            case 'FLL':
+                $resumeType = 'Fullstack';
+                break;
+        }
+
+        return $resumeType;
+
     }
 
 

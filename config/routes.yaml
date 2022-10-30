@@ -63,3 +63,27 @@ platform_delete:
     controller: App\Controller\Platform\PlatformDeleteController
     methods:    GET|POST
 
+resume:
+    path: /resumes
+    controller: App\Controller\Resume\ResumeController
+    methods: GET
+
+resume_preview:
+    path: /resumes/preview/{id}
+    controller: App\Controller\Resume\ResumePreviewController
+    methods: GET
+
+resume_form:
+    path: /resumes/form
+    controller: App\Controller\Resume\ResumeFormController
+    methods: GET|POST
+
+resume_edit:
+    path: /resumes/edit/{id}
+    controller: App\Controller\Resume\ResumeFormController
+    methods: GET|POST
+
+resume_delete:
+    path: /resumes/delete/{id}
+    controller: App\Controller\Resume\ResumeDeleteController
+    methods: GET|POST

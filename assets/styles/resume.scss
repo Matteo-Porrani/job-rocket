@@ -1,0 +1,44 @@
+.resume-wrapper {
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 1rem;
+
+
+}
+
+
+.resume {
+    background-color: hsl(240 95% 95%);
+    border-radius: 1rem;
+}
+
+.res-type {
+
+    border-radius: 1rem;
+    font-weight: 800;
+    border: 2px solid transparent;
+
+    &-frontend {
+        background-color: hsl(145 88% 90%);
+        color: hsl(145 88% 30%);
+        border-color: hsl(145 88% 30%);
+
+    }
+
+    &-backend {
+        background-color: hsl(70 80% 86%);
+        color: hsl(70 40% 28%);
+        border-color: hsl(70 40% 28%);
+    }
+
+    &-fullstack {
+        background-color: hsl(200 50% 90%);
+        color: hsl(200 40% 35%);
+        border-color: hsl(200 40% 35%);
+    }
+
+}
+
+
+

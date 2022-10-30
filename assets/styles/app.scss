@@ -2,6 +2,8 @@
 
 @import '../../node_modules/bulma/css/bulma.css';
 
+@import 'resume.scss';
+
 
 $dark: #4a4a4a;
 $grey-lighter: #dbdbdb;
@@ -114,6 +116,10 @@ select {
 
 .has-background-orange {
     background-color: #fb8c00;
+}
+
+.has-text-orange {
+    color: #fb8c00;
 }
 
 .has-background-teal {

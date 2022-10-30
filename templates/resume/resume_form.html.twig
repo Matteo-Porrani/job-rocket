@@ -1,0 +1,70 @@
+{% extends 'base.html.twig' %}
+
+{% block main %}
+
+    <section>
+        <div class="container">
+
+            <h1 class="is-size-3 has-text-weight-bold has-text-centered mt-6 mb-2">Modification de texte</h1>
+
+
+            {% if resume is defined and resume.id is not null %}
+
+                {% include 'components/_modal_toggler.html.twig' with { identifier: resume.title } %}
+
+            {% endif %}
+
+
+
+
+
+
+
+
+            {{ form_start(form) }}
+
+            <div class="field">
+                {{ form_label(form.title, 'Titre', {'label_attr': {'class': 'label'}}) }}
+                <div class="control">
+                    {{ form_widget(form.title, {attr: {class: 'is-size-5 p-2'}}) }}
+                </div>
+            </div>
+
+            <div class="columns">
+                <div class="column">
+
+                    <div class="field">
+                        {{ form_label(form.type, 'Type', {'label_attr': {'class': 'label'}}) }}
+                        <div class="control">
+                            <div class="select">
+                                {{ form_widget(form.type, {attr: {class: ''}}) }}
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="column">
+
+                </div>
+            </div>
+
+            <div class="field">
+                {{ form_label(form.content, 'Contenu', {'label_attr': {'class': 'label'}}) }}
+                <div class="control">
+                    {{ form_widget(form.content, {attr: {class: 'textarea is-family-monospace', rows: '13'}}) }}
+                </div>
+            </div>
+
+            <div class="field">
+                <div class="control has-text-centered">
+                    {{ form_widget(form.submit, {attr: {class: 'button is-primary is-medium my-4'}}) }}
+                </div>
+            </div>
+
+            {{ form_end(form) }}
+
+        </div>
+    </section>
+
+
+{% endblock %}

@@ -11,8 +11,9 @@ import './styles/app.scss';
 // start the Stimulus application
 import './bootstrap';
 
-import ModalHandling from "./js/modal_handling";
-import DashboardFiltering from "./js/dashboard_filtering";
+import ModalHandling from "./js/modal_handling.js";
+import DashboardFiltering from "./js/dashboard_filtering.js";
+import ResumeToClipboard from "./js/resume_to_clipboard.js";
 
 
 
@@ -22,7 +23,15 @@ if (location.pathname === "/" || location.pathname.includes('status')) {
   DashboardFiltering.initFiltering();
 }
 
+
+
 // init modal handling
 document.addEventListener('DOMContentLoaded', () => {
   ModalHandling.init();
+
+  // copy to clipboard
+  if (location.pathname.includes('preview')) {
+    ResumeToClipboard.init();
+  }
+
 });

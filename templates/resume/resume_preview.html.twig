@@ -1,0 +1,66 @@
+{% extends 'base.html.twig' %}
+
+
+{% block main %}
+
+    <section>
+        <div class="container is-fluid">
+
+            <div class="page-header">
+                <h1 class="is-size-2 has-text-weight-bold my-3">Aperçu texte</h1>
+            </div>
+
+{#            {{ dump(resume) }}#}
+
+
+            {# TOOLBAR #}
+            <div class="toolbar">
+                <a class="button is-dark is-medium my-3" href="{{ path('resume') }}">
+                    <i class="fas fa-arrow-left mr-2"></i>
+                    Retour
+                </a>
+
+                <a class="button is-info is-medium my-3" href="{{ path('resume_edit', {id: resume.id}) }}">
+                    <i class="far fa-edit mr-2"></i>
+                    Modifier
+                </a>
+
+            </div>
+
+
+
+
+            <h2 class="has-text-weight-bold is-size-3">{{ resume.title }}</h2>
+
+
+
+
+
+
+            <div class="columns my-4">
+                <div class="column">
+                    <p id="sourceParag" class="has-text-weight-semibold">
+                        {{ resume.content|nl2br }}
+                    </p>
+                    <hr>
+                    <p class="has-text-grey-light">{{ resume.length }} caractères</p>
+
+                </div>
+                <div class="column">
+
+                    <button id="resumeCopyBtn" class="button is-primary p-4" href="{{ path('resume') }}">
+                        <i class="far fa-copy is-size-4"></i>
+                    </button>
+
+                </div>
+            </div>
+
+
+
+
+
+        </div>
+    </section>
+
+
+{% endblock %}
