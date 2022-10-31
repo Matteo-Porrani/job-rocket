@@ -3,6 +3,7 @@
 @import '../../node_modules/bulma/css/bulma.css';
 
 @import 'resume.scss';
+@import 'link.scss';
 
 
 $dark: #4a4a4a;
@@ -12,9 +13,25 @@ $info: #3e8ed0;
 
 body {
     font-family: 'Maven Pro', sans-serif;
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+}
+
+main {
+    flex-grow: 1;
+    display: flex;
 }
 
 header {
+    //background: rgb(82,114,218);
+    //background: linear-gradient(115deg, rgba(82,114,218,1) 10%, rgba(128,219,254,1) 90%);
+
+    background: rgb(62,142,208);
+    background: linear-gradient(115deg, rgba(62,142,208,1) 10%, rgba(128,219,254,1) 90%);
+
     .container {
         display: grid;
         grid-template-columns: 7fr 4fr;
@@ -22,9 +39,9 @@ header {
 }
 
 .wrapper-grid {
+    flex-grow: 1;
     display: grid;
-    grid-template-columns: 2fr 13fr;
-    min-height: 100vh;
+    grid-template-columns: 1fr 8fr;
 }
 
 nav {
@@ -36,11 +53,11 @@ nav {
     }
 }
 
-
+// horizontal toolbar shared across pages
 .toolbar {
     display: grid;
     grid-gap: 1rem;
-    grid-template-columns: repeat(8, 1fr);
+    grid-template-columns: repeat(10, 1fr);
     align-items: center;
 }
 
@@ -67,6 +84,11 @@ select {
     font-family: inherit;
 }
 
+
+
+
+
+// entities display
 
 .job {
     display: grid;
@@ -123,10 +145,17 @@ select {
 }
 
 .has-background-teal {
-    background-color: #00acc1;
+    background-color: #00bdcf;
 }
 
 .has-background-soft {
     background-color: #dbdbdb;
 }
 
+
+
+input[type="checkbox"] {
+    width: 20px !important;
+    height: 20px;
+    margin: 0 .5rem 0 0;
+}

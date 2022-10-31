@@ -1,0 +1,39 @@
+.link-wrapper {
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 1rem;
+
+}
+
+
+.link-card {
+    position: relative;
+
+    .link-edit-icon-wrapper {
+        position: absolute;
+        right: 0;
+        top: 0;
+
+        //background-color: lightskyblue;
+    }
+}
+
+
+
+.link-image-wrapper {
+    border: 1px solid #ededed;
+    width: 92px;
+    height: 92px;
+    border-radius: 1rem;
+
+    overflow: hidden;
+
+
+    img {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover;
+    }
+
+}

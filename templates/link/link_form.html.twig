@@ -1,0 +1,96 @@
+{% extends 'base.html.twig' %}
+
+{% block main %}
+
+    <section>
+        <div class="container">
+
+            <h1 class="is-size-3 has-text-weight-bold has-text-centered mt-6 mb-2">Modification de lien</h1>
+
+
+            {% if link is defined and link.id is not null %}
+
+                {% include 'components/_modal_toggler.html.twig' with { identifier: link.title } %}
+
+            {% endif %}
+
+
+
+
+
+            {{ form_start(form) }}
+
+            <div class="field">
+                {{ form_label(form.title, 'Titre', {'label_attr': {'class': 'label'}}) }}
+                <div class="control">
+                    {{ form_widget(form.title, {attr: {class: 'is-size-5 p-2'}}) }}
+                </div>
+            </div>
+
+            <div class="field">
+                {{ form_label(form.url, 'URL', {'label_attr': {'class': 'label'}}) }}
+                <div class="control">
+                    {{ form_widget(form.url, {attr: {class: 'is-size-5 p-2'}}) }}
+                </div>
+            </div>
+
+
+            <div class="columns">
+                <div class="column">
+
+                    <!-- NOTES -->
+                    <div class="field">
+                        {{ form_label(form.notes, 'Notes', {'label_attr': {'class': 'label'}}) }}
+                        <div class="control">
+                            {{ form_widget(form.notes, {attr: {class: 'textarea is-family-monospace has-text-grey', rows: '13'}}) }}
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="column pt-6">
+
+                    <!-- FILE -->
+                    <div class="file">
+                        <label class="file-label">
+                            <input type="file"
+                                   id="link_img"
+                                   name="link[img]"
+                                   class="file-input"
+                            >
+
+                            <span class="file-cta">
+                              <span class="file-icon">
+                                <i class="fas fa-upload"></i>
+                              </span>
+                              <span class="file-label">
+                                Choose a file…
+                              </span>
+                            </span>
+
+                        </label>
+                    </div>
+
+                    <p id="linkImgFileIdentifier" class="has-text-grey-light mt-2">
+                        {{ link.imgFilename is same as('3dfolder-63601bb71a95b-webp') ? 'Aucun fichier sélectionné' : link.imgFilename }}
+                    </p>
+
+                </div>
+            </div>
+
+
+            <!-- SUBMIT ############################# -->
+            <div class="field">
+                <div class="control has-text-centered">
+                    {{ form_widget(form.submit, {attr: {class: 'button is-info is-medium my-4'}}) }}
+                </div>
+            </div>
+
+            {{ form_widget(form._token) }}
+            {{ form_end(form, {render_rest: false}) }}
+
+        </div>
+    </section>
+
+
+{% endblock %}

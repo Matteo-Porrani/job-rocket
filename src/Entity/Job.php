@@ -47,6 +47,11 @@ class Job
      */
     private $platform;
 
+    /**
+     * @ORM\Column(type="boolean", nullable=true)
+     */
+    private $favourite;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -120,6 +125,18 @@ class Job
     public function setPlatform(?Platform $platform): self
     {
         $this->platform = $platform;
+
+        return $this;
+    }
+
+    public function isFavourite(): ?bool
+    {
+        return $this->favourite;
+    }
+
+    public function setFavourite(?bool $favourite): self
+    {
+        $this->favourite = $favourite;
 
         return $this;
     }

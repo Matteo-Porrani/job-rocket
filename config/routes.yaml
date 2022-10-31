@@ -23,6 +23,7 @@ job_delete:
     controller: App\Controller\Job\JobDeleteController
     methods:    GET
 
+# COMPANIES
 company:
     path: /companies
     controller: App\Controller\Company\CompanyController
@@ -43,6 +44,7 @@ company_delete:
     controller: App\Controller\Company\CompanyDeleteController
     methods:    GET
 
+# PLATFORMS
 platform:
     path: /platforms
     controller: App\Controller\Platform\PlatformController
@@ -63,6 +65,7 @@ platform_delete:
     controller: App\Controller\Platform\PlatformDeleteController
     methods:    GET|POST
 
+# RESUMES
 resume:
     path: /resumes
     controller: App\Controller\Resume\ResumeController
@@ -87,3 +90,46 @@ resume_delete:
     path: /resumes/delete/{id}
     controller: App\Controller\Resume\ResumeDeleteController
     methods: GET|POST
+
+# LINKS
+link:
+    path: /links
+    controller: App\Controller\Link\LinkController
+    methods: GET
+
+link_form:
+    path: /links/form
+    controller: App\Controller\Link\LinkFormController
+    methods: GET|POST
+
+link_edit:
+    path: /links/edit/{id}
+    controller: App\Controller\Link\LinkFormController
+    methods: GET|POST
+
+link_delete:
+    path: /links/delete/{id}
+    controller: App\Controller\Link\LinkDeleteController
+    methods: GET|POST
+
+# TAGS
+tag:
+    path: /tags
+    controller: App\Controller\Tag\TagController
+    methods: GET
+
+tag_form:
+    path: /tags/form
+    controller: App\Controller\Tag\TagFormController
+    methods: GET|POST
+
+tag_edit:
+    path: /tags/edit/{id}
+    controller: App\Controller\Tag\TagFormController
+    methods: GET|POST
+
+tag_delete:
+    path: /tags/delete/{id}
+    controller: App\Controller\Tag\TagDeleteController
+    methods: GET|POST
+

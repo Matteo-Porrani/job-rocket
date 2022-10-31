@@ -86,6 +86,13 @@
                 </div>
             </div>
 
+            <div class="is-flex is-flex-direction-row is-justify-content-flex-start">
+                {{ form_widget(form.favourite, {attr: {class: 'checkbox'}}) }}
+
+                {{ form_label(form.favourite, '', {'label_attr': {'class': 'checkbox'}}) }}
+            </div>
+
+
 
             <div class="field">
                 <div class="control has-text-centered">

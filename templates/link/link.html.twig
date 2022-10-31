@@ -1,0 +1,77 @@
+{% extends 'base.html.twig' %}
+
+{% block main %}
+
+    <section>
+        <div class="container is-fluid">
+
+            {# PAGE HEADER #}
+            <div class="page-header">
+                <h1 class="is-size-3 has-text-weight-bold my-3">Liens</h1>
+            </div>
+
+            {# TOOLBAR #}
+            <div class="toolbar">
+                <a class="button is-info is-light my-3" href="{{ path('link_form') }}">
+                    <i class="fas fa-plus-square mr-2"></i>
+                    Ajouter
+                </a>
+            </div>
+
+
+            <div class="link-wrapper">
+
+                {% for link in links %}
+
+                    {#                    {{ dump(link) }} #}
+
+                    <article class="link-card card mb-5">
+
+                        <div class="link-edit-icon-wrapper p-4">
+                            <a href="/links/edit/{{ link.id }}">
+                                <i class="fas fa-pen-nib has-text-grey-light"></i>
+                            </a>
+                        </div>
+
+                        <div class="card-content">
+                            <div class="media">
+                                <div class="media-left">
+
+                                    <div class="link-image-wrapper">
+                                        <img src="{{ asset('uploads/link_images/'~link.imgFilename) }}"
+                                             alt="link-image">
+                                    </div>
+
+                                </div>
+                                <div class="media-content">
+                                    <h2 class="has-text-weight-bold is-size-5 mb-3">{{ link.title }}</h2>
+
+                                    <a href="{{ link.url }}"
+                                       target="_blank"
+                                       title="{{ link.title }}">
+                                        <span class="tag is-link is-light">{{ link.url|u.truncate(32, '...') }}</span>
+                                    </a>
+
+                                    <div class="has-text-grey-light">
+                                        <small>
+                                            {{ link.notes|u.truncate(36, '...')|nl2br }}
+                                        </small>
+                                    </div>
+
+
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </article>
+
+                {% endfor %}
+
+            </div>
+
+
+        </div>
+    </section>
+
+{% endblock %}

@@ -35,3 +35,22 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
 });
+
+
+
+const linkImgFileInput = document.querySelector('input[type="file"]');
+const linkImgFileIdentifier = document.querySelector('#linkImgFileIdentifier');
+
+
+
+if (linkImgFileInput) {
+
+  console.log(linkImgFileInput);
+
+  linkImgFileInput.addEventListener('change', e => {
+
+    const filename = e.target.value.split('\\')[2];
+    linkImgFileIdentifier.textContent = filename;
+
+  })
+}
