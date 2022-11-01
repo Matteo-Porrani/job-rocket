@@ -54,3 +54,50 @@ if (linkImgFileInput) {
 
   })
 }
+
+
+
+
+
+if (location.pathname.includes('jobs/form') || location.pathname.includes('jobs/edit')) {
+
+  const range = document.querySelector('input[type="range"]');
+
+  console.log('current value is ...', range.value);
+
+  const labels = document.querySelectorAll('.status-label');
+
+  const bgcolors = [
+    "#f14668", /* refusée */
+    "#b5b5b5", /* à traiter */
+    "#ffe08a", /* candidature */
+    "#fb8c00", /* en cours */
+    "#00bdcf"  /* entretien */
+  ];
+
+  labels[range.value].classList.add('active');
+  labels[range.value].style.background = bgcolors[parseInt(range.value)];
+
+  range.addEventListener('change', e => {
+    labels.forEach(i => i.classList.remove('active'));
+    labels.forEach(i => i.style.background = 'transparent');
+    labels[parseInt(e.target.value)].classList.add('active');
+    labels[parseInt(e.target.value)].style.background = bgcolors[parseInt(e.target.value)];
+  });
+
+}
+
+
+
+
+if (location.pathname.includes('resumes/preview')) {
+  const resumeCopyBtn = document.querySelector('#resumeCopyBtn');
+
+  resumeCopyBtn.addEventListener('click', () => {
+    resumeCopyBtn.classList.add('clicked');
+
+    setTimeout(() => {
+      resumeCopyBtn.classList.remove('clicked');
+    }, 500);
+  })
+}

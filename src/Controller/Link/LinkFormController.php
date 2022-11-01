@@ -45,6 +45,7 @@ class LinkFormController extends AbstractController
             $imgFile = $form->get('img')->getData();
 
             if ($imgFile) {
+
                 $originalFilename = pathinfo($imgFile->getClientOriginalName(), PATHINFO_FILENAME);
 
                 $safeFilename = $slugger->slug($originalFilename);
@@ -63,7 +64,6 @@ class LinkFormController extends AbstractController
                 $link->setImgFilename($newFilename);
 
             }
-
 
             // ...persist
 

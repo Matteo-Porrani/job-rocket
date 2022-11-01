@@ -28,11 +28,11 @@
 
             <div class="columns my-4">
                 <div class="column">
-                    <p id="sourceParag" class="has-text-weight-semibold">
+                    <p id="sourceParag" class="has-background-light has-text-weight-semibold p-5">
                         {{ resume.content|nl2br }}
                     </p>
-                    <hr>
-                    <p class="has-text-grey-light">{{ resume.length }} caractères</p>
+
+                    <p class="has-text-grey mt-2">{{ resume.length }} caractères</p>
 
                 </div>
                 <div class="column">
@@ -46,6 +46,5 @@
 
         </div>
     </section>
-
 
 {% endblock %}

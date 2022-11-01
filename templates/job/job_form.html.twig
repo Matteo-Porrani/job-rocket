@@ -31,7 +31,7 @@
 
                 <div class="column">
                     <div class="field">
-                        {{ form_label(form.company, '', {'label_attr': {'class': 'label'}}) }}
+                        {{ form_label(form.company, 'Société', {'label_attr': {'class': 'label'}}) }}
                         <div class="control">
                             <div class="select">
                                 {{ form_widget(form.company, {attr: {class: ''}}) }}
@@ -42,7 +42,7 @@
 
                 <div class="column">
                     <div class="field">
-                        {{ form_label(form.platform, '', {'label_attr': {'class': 'label'}}) }}
+                        {{ form_label(form.platform, 'Plateforme', {'label_attr': {'class': 'label'}}) }}
                         <div class="control">
                             <div class="select">
                                 {{ form_widget(form.platform, {attr: {class: ''}}) }}
@@ -51,56 +51,175 @@
                     </div>
                 </div>
 
+{#                <div class="column">#}
+{#                    <div class="field">#}
+{#                        {{ form_label(form.status, 'Statut', {'label_attr': {'class': 'label'}}) }}#}
+{#                        <div class="control">#}
+{#                            <div class="select">#}
+{#                                {{ form_widget(form.status, {attr: {class: ''}}) }}#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                </div>#}
+
+
                 <div class="column">
-                    <div class="field">
-                        {{ form_label(form.status, '', {'label_attr': {'class': 'label'}}) }}
-                        <div class="control">
-                            <div class="select">
-                                {{ form_widget(form.status, {attr: {class: ''}}) }}
-                            </div>
-                        </div>
+
+
+                    <label class="label">Image</label>
+                    <!-- FILE -->
+                    <div class="file">
+                        <label class="file-label">
+                            <input type="file"
+                                   id="job_img"
+                                   name="job[imgFile]"
+                                   class="file-input"
+                            >
+
+                            <span class="file-cta">
+                              <span class="file-icon">
+                                <i class="fas fa-upload"></i>
+                              </span>
+                              <span class="file-label">
+                                Choose a file…
+                              </span>
+                            </span>
+
+                        </label>
                     </div>
                 </div>
 
             </div>
 
 
-            <div class="field">
-                {{ form_label(form.title, '', {'label_attr': {'class': 'label'}}) }}
-                <div class="control">
-                    {{ form_widget(form.title, {attr: {class: 'is-size-4 p-2'}}) }}
+            <div class="columns">
+
+                <div class="column is-three-quarters">
+                    <div class="field">
+                        {{ form_label(form.title, '', {'label_attr': {'class': 'label'}}) }}
+                        <div class="control">
+                            {{ form_widget(form.title, {attr: {class: 'is-size-4 p-2'}}) }}
+                        </div>
+                    </div>
                 </div>
+
+                <div class="column">
+
+                    <div class="field mt-6">
+
+                        <label class="switch">
+                            <input id="job_favourite"
+                                   name="job[favourite]"
+                                   type="checkbox" {{ job.favourite ? 'checked' : '' }}>
+                            <span class="slider round"></span>
+                        </label>
+
+                        <label class="checkbox is-size-5 has-text-weight-bold ml-3" for="">Favori</label>
+
+                    </div>
+
+
+                </div>
+
             </div>
+
+
+
+
+
+            <div class="field py-5">
+
+                {% set status_list = [
+                    'Refusée',
+                    'À traiter',
+                    'Candidature',
+                    'En cours',
+                    'Entretien',
+                ] %}
+
+                <div class="range-wrapper">
+
+                    {% for status in status_list %}
+                        <div class="item step">
+                            <p class="status-label">{{ status }}</p>
+                            <div class="mark">
+                                <div class="line"></div>
+                            </div>
+                        </div>
+                    {% endfor %}
+
+                    <div class="item command">
+                        <input id="job_status"
+                               name="job[status]"
+                               type="range" min="0" max="4" step="1"
+                               value="{{ job.status is not null ? job.status : '1' }}">
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+
 
             <div class="field">
                 {{ form_label(form.link, 'Lien', {'label_attr': {'class': 'label'}}) }}
                 <div class="control">
-                    {{ form_widget(form.link, {attr: {class: 'is-size-4 p-2'}}) }}
+                    {{ form_widget(form.link, {attr: {class: 'is-size-5 p-2'}}) }}
                 </div>
             </div>
 
-            <div class="field">
-                {{ form_label(form.appliedOn, '', {'label_attr': {'class': 'label'}}) }}
-                <div class="control">
-                    {{ form_widget(form.appliedOn, {attr: {class: 'is-size-4 p-2'}}) }}
+            <div class="columns">
+
+                <div class="column">
+                    <div class="field">
+                        {{ form_label(form.appliedOn, 'Candidature du', {'label_attr': {'class': 'label'}}) }}
+                        <div class="control">
+                            {{ form_widget(form.appliedOn, {attr: {class: 'is-size-5 p-2'}}) }}
+                        </div>
+                    </div>
                 </div>
-            </div>
 
-            <div class="is-flex is-flex-direction-row is-justify-content-flex-start">
-                {{ form_widget(form.favourite, {attr: {class: 'checkbox'}}) }}
+                <div class="column">
 
-                {{ form_label(form.favourite, '', {'label_attr': {'class': 'checkbox'}}) }}
-            </div>
+                </div>
+
+            </div><!-- /.columns -->
+
+
+
+{#            <div class="is-flex is-flex-direction-row is-justify-content-flex-start">#}
+{#                {{ form_widget(form.favourite, {attr: {class: 'checkbox'}}) }}#}
+
+{#                {{ form_label(form.favourite, '', {'label_attr': {'class': 'checkbox'}}) }}#}
+{#            </div>#}
+
+
+{#            <div class="field mt-5">#}
+
+{#                <label class="switch">#}
+{#                    <input id="job_favourite"#}
+{#                           name="job[favourite]"#}
+{#                           type="checkbox" {{ job.favourite ? 'checked' : '' }}>#}
+{#                    <span class="slider round"></span>#}
+{#                </label>#}
+
+{#                <label class="checkbox is-size-5 has-text-weight-bold ml-3" for="">Favori</label>#}
+
+{#            </div>#}
 
 
 
             <div class="field">
                 <div class="control has-text-centered">
-                    {{ form_widget(form.submit, {attr: {class: 'button is-primary is-medium my-4'}}) }}
+                    {{ form_widget(form.submit, {attr: {class: 'button is-primary my-4'}}) }}
                 </div>
             </div>
 
-            {{ form_end(form) }}
+
+            {{ form_widget(form._token) }}
+            {{ form_end(form, {render_rest: false}) }}
 
         </div>
     </section>

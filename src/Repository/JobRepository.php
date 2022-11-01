@@ -42,12 +42,27 @@ class JobRepository extends ServiceEntityRepository
     /**
      * @return Job[] Returns an array of Job objects
      */
+    public function findAllFavouriteFirst(): array
+    {
+        return $this->createQueryBuilder('j')
+//            ->orderBy('j.appliedOn', 'ASC')
+            ->orderBy('j.favourite', 'DESC')
+            ->addOrderBy('j.appliedOn', 'ASC')
+            ->setMaxResults(100)
+            ->getQuery()
+            ->getResult();
+    }
+
+    /**
+     * @return Job[] Returns an array of Job objects
+     */
     public function findByStatus($value): array
     {
         return $this->createQueryBuilder('j')
             ->andWhere('j.status = :val')
             ->setParameter('val', $value)
-            ->orderBy('j.id', 'ASC')
+            ->orderBy('j.favourite', 'DESC')
+            ->addOrderBy('j.appliedOn', 'ASC')
             ->setMaxResults(30)
             ->getQuery()
             ->getResult();
@@ -61,7 +76,8 @@ class JobRepository extends ServiceEntityRepository
         return $this->createQueryBuilder('j')
             ->andWhere('j.status > :val')
             ->setParameter('val', 0)
-            ->orderBy('j.appliedOn', 'ASC')
+            ->orderBy('j.favourite', 'DESC')
+            ->addOrderBy('j.appliedOn', 'ASC')
             ->getQuery()
             ->getResult();
     }

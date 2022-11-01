@@ -52,6 +52,11 @@ class Job
      */
     private $favourite;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $imgFilename;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -137,6 +142,18 @@ class Job
     public function setFavourite(?bool $favourite): self
     {
         $this->favourite = $favourite;
+
+        return $this;
+    }
+
+    public function getImgFilename(): ?string
+    {
+        return $this->imgFilename;
+    }
+
+    public function setImgFilename(?string $imgFilename): self
+    {
+        $this->imgFilename = $imgFilename;
 
         return $this;
     }

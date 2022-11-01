@@ -1,8 +1,8 @@
 {% extends 'base.html.twig' %}
 
 {% block main %}
-
-    <section>
+<main>
+    <section class="page-content">
         <div class="container is-fluid">
 
             {# PAGE HEADER #}
@@ -16,6 +16,7 @@
             {# PAGE CONTENT #}
             <div class="job has-text-weight-semibold has-text-grey-light">
                 <div>ID</div>
+                <div></div>
                 <div>SOCIÉTÉ</div>
                 <div>INTITULÉ</div>
                 <div></div>
@@ -29,6 +30,12 @@
 
                     <div class="is-family-monospace has-text-grey-light">
                         <small>{{ loop.index }}</small>
+                    </div>
+
+                    <div class="image is-32x32">
+                        <img class="job-preview-image" src="{{ asset('uploads/link_images/'~job.imgFilename) }}" alt=""
+                             style=""
+                        >
                     </div>
 
                     <div>
@@ -100,5 +107,5 @@
 
 
 
-
+</main>
 {% endblock %}

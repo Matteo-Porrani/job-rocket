@@ -16,7 +16,7 @@ class DashboardController extends AbstractController
         if (isset($progress) && $progress === 'active') {
             $jobs = $jobRepository->findActiveJobs();
         } else {
-            $jobs = $jobRepository->findAll();
+            $jobs = $jobRepository->findAllFavouriteFirst();
         }
 
 
