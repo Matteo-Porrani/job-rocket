@@ -25,27 +25,12 @@ class JobFormController extends AbstractController
 
         if (!$job) {
             $job = new Job();
-
             $job->setImgFilename(self::DEFAULT_FILENAME);
         }
-
-
-
-
-
-
 
         if ($job->getImgFilename() === null) {
             $job->setImgFilename(self::DEFAULT_FILENAME);
         }
-
-
-
-
-
-
-
-
 
         $form = $this->createForm(JobType::class, $job);
 
@@ -68,9 +53,7 @@ class JobFormController extends AbstractController
 
                 // Move the file to the directory where brochures are stored
                 try {
-
                     $imgFile->move($this->getParameter('link_images_directory'), $newFilename);
-
                 } catch (FileException $e) {
 
                 }
@@ -80,12 +63,10 @@ class JobFormController extends AbstractController
             }
 
             // ...persist
-
             $em->persist($job);
             $em->flush();
 
-            return $this->redirectToRoute('index');
-
+            return $this->redirectToRoute('index', ['progress' => 'active']);
         }
 
         return $this->render('job/job_form.html.twig', [

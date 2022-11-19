@@ -29,6 +29,10 @@ class JobType extends AbstractType
                 'label' => 'Favori',
                 'required' => false,
             ])
+            ->add('top', CheckboxType::class, [
+                'label' => 'Prioritaire',
+                'required' => false,
+            ])
             ->add('status', ChoiceType::class, [
                 'label' => 'Status',
                 'choices' => [

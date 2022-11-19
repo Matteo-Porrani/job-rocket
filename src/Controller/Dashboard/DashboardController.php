@@ -19,17 +19,18 @@ class DashboardController extends AbstractController
             $jobs = $jobRepository->findAllFavouriteFirst();
         }
 
+        $topjobs = $jobRepository->findTopJobs();
 
-
-        return $this->render('dashboard/dashboard.html.twig', compact('jobs'));
+        return $this->render('dashboard/dashboard.html.twig', compact('jobs', 'topjobs'));
     }
 
 
     public function filterByStatus(string $status, JobRepository $jobRepository)
     {
         $jobs = $jobRepository->findByStatus($status);
+        $topjobs = $jobRepository->findTopJobs();
 
-        return $this->render('dashboard/dashboard.html.twig', compact('jobs'));
+        return $this->render('dashboard/dashboard.html.twig', compact('jobs', 'topjobs'));
     }
 
 }

@@ -16,6 +16,6 @@ class JobDeleteController extends AbstractController
         $em->remove($job);
         $em->flush();
 
-        return $this->redirectToRoute('index');
+        return $this->redirectToRoute('index', ['progress' => 'active']);
     }
 }

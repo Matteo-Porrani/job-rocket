@@ -1,3 +1,10 @@
+{% if app.request.attributes.get('_route_params') is not null and app.request.attributes.get('_route_params').status is defined %}
+    {% set status = app.request.attributes.get('_route_params').status %}
+{% else %}
+    {% set status = 999 %}
+{% endif %}
+
+
 <div class="toolbar">
     <a class="button is-info is-light my-3" href="{{ path('job_form') }}">
         <i class="fas fa-plus-square mr-2"></i>
@@ -8,12 +15,12 @@
 
     <div class="select">
         <select name="filter">
-            <option value="" disabled selected>---</option>
-            <option value="0">Refusé</option>
-            <option value="1">À traiter</option>
-            <option value="2">Candidature</option>
-            <option value="3">En cours</option>
-            <option value="4">Entretien</option>
+            <option value="" disabled {{ status is same as(999) ? 'selected' : '' }}>---</option>
+            <option value="0" {{ status is same as('0') ? 'selected' : '' }}>Refusé</option>
+            <option value="1" {{ status is same as('1') ? 'selected' : '' }}>À traiter</option>
+            <option value="2" {{ status is same as('2') ? 'selected' : '' }}>Candidature</option>
+            <option value="3" {{ status is same as('3') ? 'selected' : '' }}>En cours</option>
+            <option value="4" {{ status is same as('4') ? 'selected' : '' }}>Entretien</option>
         </select>
     </div>
 

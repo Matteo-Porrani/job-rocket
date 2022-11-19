@@ -16,19 +16,14 @@
 
             {# DELETE BUTTON #}
             {% if job is defined and job.id is not null %}
-{#                <div class="has-text-centered">#}
-{#                    <a class="button is-danger is-large my-4"#}
-{#                       href="{{ path('job_delete', {id: job.id }) }}">Supprimer</a>#}
-{#                </div>#}
-
                 {% include 'components/_modal_toggler.html.twig' with { identifier: job.title } %}
-
             {% endif %}
+
+{#            {{ dump(job.top) }}#}
 
             {{ form_start(form) }}
 
             <div class="columns">
-
                 <div class="column">
                     <div class="field">
                         {{ form_label(form.company, 'Société', {'label_attr': {'class': 'label'}}) }}
@@ -94,7 +89,7 @@
 
             <div class="columns">
 
-                <div class="column is-three-quarters">
+                <div class="column is-three-fifths">
                     <div class="field">
                         {{ form_label(form.title, '', {'label_attr': {'class': 'label'}}) }}
                         <div class="control">
@@ -104,21 +99,27 @@
                 </div>
 
                 <div class="column">
-
                     <div class="field mt-6">
-
                         <label class="switch">
                             <input id="job_favourite"
                                    name="job[favourite]"
                                    type="checkbox" {{ job.favourite ? 'checked' : '' }}>
                             <span class="slider round"></span>
                         </label>
-
                         <label class="checkbox is-size-5 has-text-weight-bold ml-3" for="">Favori</label>
-
                     </div>
+                </div>
 
-
+                <div class="column">
+                    <div class="field mt-6">
+                        <label class="switch">
+                            <input id="job_favourite"
+                                   name="job[top]"
+                                   type="checkbox" {{ job.top ? 'checked' : '' }}>
+                            <span class="slider round"></span>
+                        </label>
+                        <label class="checkbox is-size-5 has-text-weight-bold ml-3" for="">Prioritaire</label>
+                    </div>
                 </div>
 
             </div>

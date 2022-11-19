@@ -57,6 +57,11 @@ class Job
      */
     private $imgFilename;
 
+    /**
+     * @ORM\Column(type="boolean", nullable=true)
+     */
+    private $top;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -154,6 +159,18 @@ class Job
     public function setImgFilename(?string $imgFilename): self
     {
         $this->imgFilename = $imgFilename;
+
+        return $this;
+    }
+
+    public function isTop(): ?bool
+    {
+        return $this->top;
+    }
+
+    public function setTop(?bool $top): self
+    {
+        $this->top = $top;
 
         return $this;
     }

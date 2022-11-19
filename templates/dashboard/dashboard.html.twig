@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block main %}
-<main>
+
     <section class="page-content">
         <div class="container is-fluid">
 
@@ -12,6 +12,8 @@
 
             {# TOOLBAR #}
             {% include 'dashboard/_toolbar_dashboard.html.twig' %}
+
+{#            {{ dump(app.request.attributes.get('_route_params').status) }}#}
 
             {# PAGE CONTENT #}
             <div class="job has-text-weight-semibold has-text-grey-light">
@@ -25,87 +27,41 @@
                 <div>POSTULÉ LE</div>
             </div>
 
-            {% for job in jobs %}
-                <div class="job">
 
-                    <div class="is-family-monospace has-text-grey-light">
-                        <small>{{ loop.index }}</small>
-                    </div>
+{#            {% if app.request.attributes.get('_route_params')is not empty and app.request.attributes.get('_route_params').status > 0 %}#}
 
-                    <div class="image is-32x32">
-                        <img class="job-preview-image" src="{{ asset('uploads/link_images/'~job.imgFilename) }}" alt=""
-                             style=""
-                        >
-                    </div>
 
-                    <div>
-                        <h5 class="has-text-weight-bold">
-                            {{ job.company.name|upper }}
-                        </h5>
-                    </div>
+{#            {% endif %}#}
 
-                    <div>
-                        <h5>
-                            <a class="has-text-weight-bold px-2 {{ job.favourite ? 'is-favourite has-text-dark' : 'has-text-grey'}}"
-                               href="{{ path('job_edit', {id: job.id}) }}"
-                               style="background: {{ job.favourite ? 'hsl(44, 100%, 77%)' : '' }}"
-                            >
-                                {{ job.title }}
-                            </a>
-                        </h5>
-                    </div>
-
-                    <div>
-                        {% if job.link is not null %}
-                            <a href="{{ job.link }}" target="_blank">
-{#                                <i class="fas fa-external-link-alt"></i>#}
-                                <i class="fas fa-location-arrow"></i>
-                            </a>
-                        {% endif %}
-                    </div>
-
-                    <div class="status has-background-{{ job.status|status_color }} has-text-centered mr-2">
-                        <small class="has-text-weight-semibold">
-                            {{ job.status|status|upper }}
-                        </small>
-                    </div>
-
-                    <div>
-                        {% if job.platform is not null %}
-                            <p class="has-text-weight-semibold">{{ job.platform.name }}</p>
-                        {% endif %}
-                    </div>
-
-                    <div>
-                        <p>{{ job.appliedOn|date("d/m/Y") }}</p>
-                    </div>
-                </div>
+            {% for job in topjobs %}
+                {% include 'job/_job_item.html.twig' %}
             {% endfor %}
 
+            <div class="py-6"></div>
 
 
-{#            {% set colors = [#}
-{#                'primary',#}
-{#                'info',#}
-{#                'warning',#}
-{#                'danger',#}
-{#                'grey-light',#}
-{#                'grey-lighter',#}
-{#            ] %}#}
 
-{#            {% for c in colors %}#}
-{#                <div class="has-background-{{ c }}" style="width: 100px; border-radius: 10px">#}
-{#                    <p>ABC</p>#}
-{#                </div>#}
-{#            {% endfor %}#}
+            {% for job in jobs %}
+                {% include 'job/_job_item.html.twig' %}
+            {% endfor %}
 
+            {#            {% set colors = [ #}
+            {#                'primary', #}
+            {#                'info', #}
+            {#                'warning', #}
+            {#                'danger', #}
+            {#                'grey-light', #}
+            {#                'grey-lighter', #}
+            {#            ] %} #}
+
+            {#            {% for c in colors %} #}
+            {#                <div class="has-background-{{ c }}" style="width: 100px; border-radius: 10px"> #}
+            {#                    <p>ABC</p> #}
+            {#                </div> #}
+            {#            {% endfor %} #}
 
 
         </div>
     </section>
 
-
-
-
-</main>
 {% endblock %}
