@@ -2,6 +2,10 @@
 
 {% block main %}
 
+{# FIXME -- ACCESS REQUEST QUERY & PARAMETERS #}
+{#    {{ dump(app.request.query.get('progress')) }}#}
+{#    {{ dump(app.request.attributes.get('status')) }}#}
+
     <section class="page-content">
         <div class="container is-fluid">
 
@@ -27,19 +31,11 @@
                 <div>POSTULÉ LE</div>
             </div>
 
-
-{#            {% if app.request.attributes.get('_route_params')is not empty and app.request.attributes.get('_route_params').status > 0 %}#}
-
-
-{#            {% endif %}#}
-
             {% for job in topjobs %}
                 {% include 'job/_job_item.html.twig' %}
             {% endfor %}
 
             <div class="py-6"></div>
-
-
 
             {% for job in jobs %}
                 {% include 'job/_job_item.html.twig' %}
